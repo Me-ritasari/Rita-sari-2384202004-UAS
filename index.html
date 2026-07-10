@@ -23,6 +23,7 @@
         <ul class="nav-links">
             <li><a href="#home" class="nav-link active">Home</a></li>
             <li><a href="#profil" class="nav-link">Profil</a></li>
+            <li><a href="#galeri-foto" class="nav-link">Galeri Foto</a></li>
             <li><a href="#video" class="nav-link">Video</a></li>
             <li><a href="#galeri" class="nav-link">Galeri Musik</a></li>
         </ul>
@@ -127,7 +128,21 @@
             </div>
         </section>
 
-        <!-- ===== VIDEO Section (BARU) ===== -->
+        <!-- ===== GALERI FOTO Section (BARU) ===== -->
+        <section id="galeri-foto" class="section">
+            <div class="section-header">
+                <h2 class="section-title">
+                    <i class="fas fa-camera"></i> Galeri Foto
+                </h2>
+                <div class="section-line"></div>
+            </div>
+            <p class="section-subtitle">Kumpulan momen berharga dalam perjalanan saya sebagai calon guru dan pecinta musik.</p>
+            <div class="photo-grid" id="photo-grid-container">
+                <!-- Foto akan dirender oleh JavaScript -->
+            </div>
+        </section>
+
+        <!-- ===== VIDEO Section ===== -->
         <section id="video" class="section">
             <div class="section-header">
                 <h2 class="section-title">
@@ -141,7 +156,7 @@
             </div>
         </section>
 
-        <!-- GALERI Section -->
+        <!-- GALERI MUSIK Section -->
         <section id="galeri" class="section">
             <div class="section-header">
                 <h2 class="section-title">
@@ -162,6 +177,16 @@
             <i class="fas fa-times"></i>
         </button>
         <video id="modalVideo" controls autoplay></video>
+    </div>
+</div>
+
+<!-- ===== PHOTO MODAL (LIGHTBOX) ===== -->
+<div class="photo-modal" id="photoModal">
+    <button class="photo-modal-close" id="photoModalClose">
+        <i class="fas fa-times"></i>
+    </button>
+    <div class="photo-modal-content">
+        <img id="modalPhoto" src="" alt="Foto">
     </div>
 </div>
 

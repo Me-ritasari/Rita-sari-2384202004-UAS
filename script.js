@@ -1,31 +1,64 @@
 // ============================================
+// DATA GALERI FOTO - GANTI DENGAN FOTO ANDA
+// ============================================
+const photoGallery = [
+    {
+        id: 1,
+        title: "📸 Momen di Kampus",
+        description: "Menikmati kopi sambil membaca buku pendidikan.",
+        imageUrl: "fot&vid/rit1.jpeg"
+    },
+    {
+        id: 2,
+        title: "📸 Inspirasi Pagi",
+        description: "Bersama teman-teman setelah praktik mengajar.",
+        imageUrl: "fot&vid/rit2.jpeg"
+    },
+    {
+        id: 3,
+        title: "📸 Latihan Musik",
+        description: "Mencari referensi metode pembelajaran kreatif.",
+        imageUrl: "fot&vid/rit3.jpeg"
+    },
+    {
+        id: 4,
+        title: "📸 Bersama Teman",
+        description: "foto bersama teman-teman setelah mengajar.",
+        imageUrl: "fot&vid/rit4.jpeg"
+    },
+    {
+        id: 5,
+        title: "📸 Perpustakaan",
+        description: "Sesi latihan untuk ice breaking di kelas.",
+        imageUrl: "fot&vid/rit5.jpeg"
+    },
+    {
+        id: 6,
+        title: "📸 Dokumentasi Kegiatan MASTAMA UMKO 2023",
+        description: "Penampilan kegiatan di acara kampus.",
+        imageUrl: "fot&vid/rit6.jpeg"
+    }
+];
+
+// ============================================
 // DATA VIDEO - PERBAIKI PATH FILE VIDEO ANDA
 // ============================================
 const videoList = [
     {
         id: 1,
         title: "🎬 Random Part",
-        description: "Kerandomanku part 1!",
-        videoUrl: "fot&vid/vid1.mp4",
+        description: "Ini adalah Momen Kerandomanku!",
+        videoUrl: "fot&vid/vid.mp4",
         thumbnail: "fot&vid/rit1.jpeg",
         duration: "",
         tag: "Praktik Mengajar"
-    },
-    {
-        id: 2,
-        title: "🎬 Random Part2",
-        description: "Vidio Kerandomanku",
-        videoUrl: "fot&vid/vid2.mp4",
-        thumbnail: "fot&vid/rit.jpeg",
-        duration: "",
-        tag: "Ice Breaking"
     },
     {
         id: 3,
         title: "🎬 Studio Foto",
         description: "Video random bersama teman.",
         videoUrl: "fot&vid/vid3.mp4",
-        thumbnail: "fot&vid/rit1.jpeg",
+        thumbnail: "fot&vid/rit3.jpeg",
         duration: "",
         tag: "Behind The Scene"
     },
@@ -34,7 +67,7 @@ const videoList = [
         title: "🎬 Studio Foto",
         description: "Foto-foto aku dan teman.",
         videoUrl: "fot&vid/vid4.mp4",
-        thumbnail: "fot&vid/rit.jpeg",
+        thumbnail: "fot&vid/rit3.jpeg",
         duration: "",
         tag: "Behind The Scene"
     }
@@ -96,6 +129,72 @@ let audio = null;
 const modal = document.getElementById('videoModal');
 const modalVideo = document.getElementById('modalVideo');
 const modalClose = document.getElementById('videoModalClose');
+
+// ============================================
+// FUNGSI RENDER GALERI FOTO
+// ============================================
+function renderPhotoGallery() {
+    const container = document.getElementById('photo-grid-container');
+    if (!container) return;
+
+    let html = '';
+    photoGallery.forEach((photo, index) => {
+        html += `
+            <div class="photo-card" data-index="${index}">
+                <img src="${photo.imageUrl}" alt="${escapeHtml(photo.title)}" loading="lazy">
+                <div class="photo-overlay">
+                    <div class="photo-title">${escapeHtml(photo.title)}</div>
+                    <div class="photo-desc">${escapeHtml(photo.description)}</div>
+                </div>
+            </div>
+        `;
+    });
+    container.innerHTML = html;
+
+    // Event listener untuk buka lightbox
+    document.querySelectorAll('.photo-card').forEach(card => {
+        card.addEventListener('click', function() {
+            const index = parseInt(this.getAttribute('data-index'));
+            openPhotoModal(index);
+        });
+    });
+}
+
+// ============================================
+// FUNGSI MODAL FOTO (LIGHTBOX)
+// ============================================
+const photoModal = document.getElementById('photoModal');
+const modalPhoto = document.getElementById('modalPhoto');
+const photoModalClose = document.getElementById('photoModalClose');
+
+function openPhotoModal(index) {
+    const photo = photoGallery[index];
+    if (!photo) return;
+
+    modalPhoto.src = photo.imageUrl;
+    modalPhoto.alt = photo.title;
+    photoModal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+}
+
+function closePhotoModal() {
+    photoModal.classList.remove('active');
+    document.body.style.overflow = '';
+}
+
+photoModalClose.addEventListener('click', closePhotoModal);
+
+photoModal.addEventListener('click', function(e) {
+    if (e.target === this) {
+        closePhotoModal();
+    }
+});
+
+document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape' && photoModal.classList.contains('active')) {
+        closePhotoModal();
+    }
+});
 
 // ============================================
 // FUNGSI RENDER VIDEO
@@ -398,6 +497,7 @@ function initMobile() {
 // INISIALISASI
 // ============================================
 document.addEventListener('DOMContentLoaded', () => {
+    renderPhotoGallery();
     renderVideos();
     renderMusicGallery();
     initNav();
