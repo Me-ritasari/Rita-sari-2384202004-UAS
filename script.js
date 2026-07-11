@@ -6,49 +6,49 @@ const photoGallery = [
         id: 1,
         title: "📸 Rita Sari",
         description: "Ini adalah foto saya",
-        imageUrl: "fot&vid/rit1.jpeg"
+        imageUrl: "assets/fot&vid/rit1.jpeg"
     },
     {
         id: 2,
         title: "📸 foto bersama sahabat saya di studio foto",
         description: "ini momen berharga saya dengan sahabat",
-        imageUrl: "fot&vid/rit2.jpeg"
+        imageUrl: "assets/fot&vid/rit2.jpeg"
     },
     {
         id: 3,
         title: "📸 Foto bersama teman di studio  PMTK Angkatan 2023",
         description: "ini momen foto bersama teman-teman kelas saya",
-        imageUrl: "fot&vid/rit3.jpeg"
+        imageUrl: "assets/fot&vid/rit3.jpeg"
     },
     {
         id: 4,
         title: "📸 Foto bersama teman di studio  PMTK Angkatan 2023",
         description: "ini momen foto bersama teman-teman kelas saya",
-        imageUrl: "fot&vid/rit4.jpeg"
+        imageUrl: "assets/fot&vid/rit4.jpeg"
     },
     {
         id: 5,
         title: "📸 Lampiran: PKL Masa SMK – STIMIK Surya Intan",
         description: "ini merupakan dokumentasi saya saat saya PKL",
-        imageUrl: "fot&vid/rit5.jpeg"
+        imageUrl: "assets/fot&vid/rit5.jpeg"
     },
     {
         id: 6,
         title: "📸 Dokumentasi Kegiatan MASTAMA UMKO 2023",
         description: "ini momen saya saat masuk MASTAMA",
-        imageUrl: "fot&vid/rit6.jpeg"
+        imageUrl: "assets/fot&vid/rit6.jpeg"
     },
     {
         id: 7,
         title: "📸 Dokumentasi Kegiatan SAMO Universitas Muhammadiyah Kotabumi",
         description: "ini dokumentasi organisasi",
-        imageUrl: "fot&vid/rit7.jpeg"
+        imageUrl: "assets/fot&vid/rit7.jpeg"
     },
     {
         id: 8,
         title: "📸 Dokumentasi Kegiatan Seminar Desain Grafis",
         description: "ini dokumentasi organisasi",
-        imageUrl: "fot&vid/rit8.jpeg"
+        imageUrl: "assets/fot&vid/rit8.jpeg"
     }
 ];
 
@@ -60,17 +60,17 @@ const videoList = [
         id: 1,
         title: "🎬 Rita Sari",
         description: "Ini adalah Momen Kerandomanku!",
-        videoUrl: "fot&vid/vid.mp4",
-        thumbnail: "fot&vid/rit1.jpeg",
+        videoUrl: "assets/fot&vid/vid.mp4",
+        thumbnail: "assets/fot&vid/rit1.jpeg",
         duration: "",
-        tag: "Praktik Mengajar"
+        tag: "Behind The Scene"
     },
     {
         id: 3,
         title: "🎬 Studio Foto",
         description: "Video random bersama teman.",
-        videoUrl: "fot&vid/vid3.mp4",
-        thumbnail: "fot&vid/rit3.jpeg",
+        videoUrl: "assets/fot&vid/vid3.mp4",
+        thumbnail: "assets/fot&vid/rit3.jpeg",
         duration: "",
         tag: "Behind The Scene"
     },
@@ -78,8 +78,8 @@ const videoList = [
         id: 4,
         title: "🎬 Studio Foto",
         description: "Foto-foto aku dan teman.",
-        videoUrl: "fot&vid/vid4.mp4",
-        thumbnail: "fot&vid/rit3.jpeg",
+        videoUrl: "assets/fot&vid/vid4.mp4",
+        thumbnail: "assets/fot&vid/rit3.jpeg",
         duration: "",
         tag: "Behind The Scene"
     }
@@ -95,7 +95,7 @@ const favoriteSongs = [
         artist: "Feby Putri & Fiersa Besari",
         imageUrl: "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=600&h=400&fit=crop",
         explanation: "Lagu ini selalu mengingatkan saya bahwa menjadi calon guru juga punya masa-masa lelah dan hampir runtuh. Tapi seperti liriknya, kita boleh tidak kuat sesekali, lalu bangkit lagi. Lagu ini jadi penguat saat saya menghadapi tantangan dalam praktik mengajar.",
-        audioUrl: "list_lagu/Feby Putri - Runtuh feat Fiersa Besari Lirik Lagu Indonesia.mp3"
+        audioUrl: "assets/list_lagu/Feby Putri - Runtuh feat Fiersa Besari Lirik Lagu Indonesia.mp3"
     },
     {
         id: 2,
@@ -103,7 +103,7 @@ const favoriteSongs = [
         artist: "The Weeknd",
         imageUrl: "https://images.unsplash.com/photo-1470225620780-dba8ba36b745?w=600&h=400&fit=crop",
         explanation: "Lagu dengan energi positif ini menemani saya saat begadang menyusun RPP dan materi ajar. Iramanya yang bersemangat membuat saya tetap terjaga dan termotivasi. Cocok banget diputar saat sedang persiapan mengajar atau setelah seharian praktik di sekolah.",
-        audioUrl: "list_lagu/The Weeknd - Blinding Lights (Official Video).mp3"
+        audioUrl: "assets/list_lagu/The Weeknd - Blinding Lights (Official Video).mp3"
     },
     {
         id: 3,
@@ -111,7 +111,7 @@ const favoriteSongs = [
         artist: "New West",
         imageUrl: "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?w=600&h=400&fit=crop",
         explanation: "Melodi lembut lagu ini mengingatkan saya pada mata-mata polos murid-murid saya nanti. Setiap mendengar lagu ini, saya semakin termotivasi untuk menjadi guru yang baik, penuh perhatian, dan mampu melihat potensi setiap anak didik.",
-        audioUrl: "list_lagu/New West - Those Eyes (Home Session).mp3"
+        audioUrl: "assets/list_lagu/New West - Those Eyes (Home Session).mp3"
     },
     {
         id: 4,
@@ -119,7 +119,7 @@ const favoriteSongs = [
         artist: "Coldplay",
         imageUrl: "https://asset.tribunnews.com/OccmVJVy6lQQXln9pxcjOgij9d8=/1200x675/filters:upscale():quality(30):format(webp):focal(0.5x0.5:0.5x0.5)/manado/foto/bank/originals/lirik-dan-terjemahan-lagu-yellow-coldplay-terjemahan-bahasa-inggris-ke-bahasa-indonesia.jpg",
         explanation: "Lagu klasik ini mengajarkan tentang ketulusan. Sebagai calon guru, saya ingin mendidik dengan tulus, seperti warna kuning yang cerah dan hangat. Lagu ini selalu mengingatkan saya untuk tidak pernah lelah berbuat baik untuk anak didik.",
-        audioUrl: "list_lagu/Coldplay - Yellow (Official Video).mp3"
+        audioUrl: "assets/list_lagu/Coldplay - Yellow (Official Video).mp3"
     },
     {
         id: 5,
@@ -127,7 +127,7 @@ const favoriteSongs = [
         artist: "Tulus",
         imageUrl: "https://images.unsplash.com/photo-1514320291840-2e0a9bf2a9ae?w=600&h=400&fit=crop",
         explanation: "Pesan dalam lagu ini sangat dalam — tentang merelakan dan mendoakan yang terbaik. Saya terinspirasi untuk menjadi guru yang bisa melepas murid-murid dengan doa terbaik, setelah membekali mereka ilmu dan karakter. Sangat menyentuh hati sebagai calon pendidik.",
-        audioUrl: "list_lagu/TULUS - Hati-Hati di Jalan (Official Lyric Video).mp3"
+        audioUrl: "assets/list_lagu/TULUS - Hati-Hati di Jalan (Official Lyric Video).mp3"
     }
 ];
 
@@ -325,7 +325,7 @@ function initAudio(index) {
 
     audio.addEventListener('error', function(e) {
         console.error('Error memutar audio:', e);
-        alert('Gagal memutar musik. Pastikan file MP3 ada di folder list_lagu/');
+        alert('Gagal memutar musik. Pastikan file MP3 ada di folder assets/list_lagu/');
     });
 }
 
