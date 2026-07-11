@@ -141,8 +141,10 @@ function renderPhotoGallery() {
     photoGallery.forEach((photo, index) => {
         html += `
             <div class="photo-card" data-index="${index}">
-                <img src="${photo.imageUrl}" alt="${escapeHtml(photo.title)}" loading="lazy">
-                <div class="photo-overlay">
+                <div class="photo-wrapper">
+                    <img src="${photo.imageUrl}" alt="${escapeHtml(photo.title)}" loading="lazy">
+                </div>
+                <div class="photo-content">
                     <div class="photo-title">${escapeHtml(photo.title)}</div>
                     <div class="photo-desc">${escapeHtml(photo.description)}</div>
                 </div>
