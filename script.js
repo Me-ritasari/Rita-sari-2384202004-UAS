@@ -4,39 +4,51 @@
 const photoGallery = [
     {
         id: 1,
-        title: "📸 Momen di Kampus",
-        description: "Menikmati kopi sambil membaca buku pendidikan.",
+        title: "📸 Rita Sari",
+        description: "Ini adalah foto saya",
         imageUrl: "fot&vid/rit1.jpeg"
     },
     {
         id: 2,
-        title: "📸 Inspirasi Pagi",
-        description: "Bersama teman-teman setelah praktik mengajar.",
+        title: "📸 foto bersama sahabat saya di studio foto",
+        description: "ini momen berharga saya dengan sahabat",
         imageUrl: "fot&vid/rit2.jpeg"
     },
     {
         id: 3,
-        title: "📸 Latihan Musik",
-        description: "Mencari referensi metode pembelajaran kreatif.",
+        title: "📸 Foto bersama teman di studio  PMTK Angkatan 2023",
+        description: "ini momen foto bersama teman-teman kelas saya",
         imageUrl: "fot&vid/rit3.jpeg"
     },
     {
         id: 4,
-        title: "📸 Bersama Teman",
-        description: "foto bersama teman-teman setelah mengajar.",
+        title: "📸 Foto bersama teman di studio  PMTK Angkatan 2023",
+        description: "ini momen foto bersama teman-teman kelas saya",
         imageUrl: "fot&vid/rit4.jpeg"
     },
     {
         id: 5,
-        title: "📸 Perpustakaan",
-        description: "Sesi latihan untuk ice breaking di kelas.",
+        title: "📸 Lampiran: PKL Masa SMK – STIMIK Surya Intan",
+        description: "ini merupakan dokumentasi saya saat saya PKL",
         imageUrl: "fot&vid/rit5.jpeg"
     },
     {
         id: 6,
         title: "📸 Dokumentasi Kegiatan MASTAMA UMKO 2023",
-        description: "Penampilan kegiatan di acara kampus.",
+        description: "ini momen saya saat masuk MASTAMA",
         imageUrl: "fot&vid/rit6.jpeg"
+    },
+    {
+        id: 7,
+        title: "📸 Dokumentasi Kegiatan SAMO Universitas Muhammadiyah Kotabumi",
+        description: "ini dokumentasi organisasi",
+        imageUrl: "fot&vid/rit7.jpeg"
+    },
+    {
+        id: 8,
+        title: "📸 Dokumentasi Kegiatan Seminar Desain Grafis",
+        description: "ini dokumentasi organisasi",
+        imageUrl: "fot&vid/rit8.jpeg"
     }
 ];
 
@@ -46,7 +58,7 @@ const photoGallery = [
 const videoList = [
     {
         id: 1,
-        title: "🎬 Random Part",
+        title: "🎬 Rita Sari",
         description: "Ini adalah Momen Kerandomanku!",
         videoUrl: "fot&vid/vid.mp4",
         thumbnail: "fot&vid/rit1.jpeg",
@@ -430,6 +442,129 @@ function renderMusicGallery() {
 }
 
 // ============================================
+// BUKU TAMU - GUESTBOOK
+// ============================================
+const guestbookForm = document.getElementById('guestbookForm');
+const messagesContainer = document.getElementById('messagesContainer');
+let guestMessages = [];
+
+// Load messages from localStorage
+function loadMessages() {
+    const stored = localStorage.getItem('guestMessages');
+    if (stored) {
+        try {
+            guestMessages = JSON.parse(stored);
+        } catch (e) {
+            guestMessages = [];
+        }
+    }
+    renderMessages();
+}
+
+// Save messages to localStorage
+function saveMessages() {
+    localStorage.setItem('guestMessages', JSON.stringify(guestMessages));
+}
+
+// Format time
+function formatTime() {
+    const now = new Date();
+    const options = { 
+        day: 'numeric', 
+        month: 'short', 
+        year: 'numeric',
+        hour: '2-digit',
+        minute: '2-digit'
+    };
+    return now.toLocaleDateString('id-ID', options);
+}
+
+// Render messages
+function renderMessages() {
+    if (guestMessages.length === 0) {
+        messagesContainer.innerHTML = `
+            <div class="empty-message">
+                <i class="fas fa-inbox"></i>
+                <p>Belum ada pesan. Jadilah yang pertama!</p>
+            </div>
+        `;
+        return;
+    }
+
+    let html = '';
+    // Tampilkan pesan terbaru di atas
+    const reversed = [...guestMessages].reverse();
+    reversed.forEach((msg, index) => {
+        html += `
+            <div class="message-item" style="animation-delay: ${index * 0.05}s">
+                <div class="msg-name">
+                    <i class="fas fa-user-circle"></i> ${escapeHtml(msg.name)}
+                </div>
+                <div class="msg-time">
+                    <i class="far fa-clock"></i> ${escapeHtml(msg.time)}
+                </div>
+                <div class="msg-text">${escapeHtml(msg.message)}</div>
+            </div>
+        `;
+    });
+    messagesContainer.innerHTML = html;
+}
+
+// Handle form submit
+if (guestbookForm) {
+    guestbookForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        const nameInput = document.getElementById('guestName');
+        const messageInput = document.getElementById('guestMessage');
+        
+        const name = nameInput.value.trim();
+        const message = messageInput.value.trim();
+        
+        if (!name || !message) {
+            alert('Silakan isi nama dan pesan Anda!');
+            return;
+        }
+        
+        // Add new message
+        guestMessages.push({
+            name: name,
+            message: message,
+            time: formatTime()
+        });
+        
+        saveMessages();
+        renderMessages();
+        
+        // Show toast notification
+        showToastMessage('Pesan terkirim! Terima kasih 🙏');
+        
+        // Reset form
+        nameInput.value = '';
+        messageInput.value = '';
+    });
+}
+
+// Custom toast for guestbook
+function showToastMessage(text) {
+    const existing = document.querySelector('.custom-toast');
+    if (existing) existing.remove();
+    
+    const toast = document.createElement('div');
+    toast.className = 'custom-toast';
+    toast.innerHTML = `
+        <div class="toast-content">
+            <i class="fas fa-check-circle" style="color: #22c55e;"></i>
+            <span><strong>${text}</strong></span>
+            <button class="toast-close-btn"><i class="fas fa-times"></i></button>
+        </div>
+    `;
+    document.body.appendChild(toast);
+    toast.querySelector('.toast-close-btn').addEventListener('click', () => toast.remove());
+    setTimeout(() => toast.remove(), 3000);
+}
+
+// ============================================
 // TOAST NOTIFICATION
 // ============================================
 function showToast(song, artist) {
@@ -498,11 +633,12 @@ function initMobile() {
 // ============================================
 // INISIALISASI
 // ============================================
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', function() {
     renderPhotoGallery();
     renderVideos();
     renderMusicGallery();
     initNav();
     initMobile();
     initAudio(0);
+    loadMessages();
 });

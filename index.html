@@ -26,6 +26,7 @@
             <li><a href="#galeri-foto" class="nav-link">Galeri Foto</a></li>
             <li><a href="#video" class="nav-link">Video</a></li>
             <li><a href="#galeri" class="nav-link">Galeri Musik</a></li>
+            <li><a href="#buku-tamu" class="nav-link">Buku Tamu</a></li>
         </ul>
         <div class="menu-toggle">
             <i class="fas fa-bars"></i>
@@ -86,9 +87,7 @@
             <div class="profile-grid">
                 <div class="profile-card-left">
                     <div class="profile-image-wrapper">
-                        <!-- ========== GANTI FOTO ANDA DI SINI ========== -->
                         <img src="fot&vid/rit.jpeg" alt="Profile Photo" id="profile-img">
-                        <!-- ========== END GANTI FOTO ========== -->
                         <div class="image-overlay"></div>
                     </div>
                     <div class="profile-stats">
@@ -128,7 +127,7 @@
             </div>
         </section>
 
-        <!-- ===== GALERI FOTO Section (BARU) ===== -->
+        <!-- GALERI FOTO Section -->
         <section id="galeri-foto" class="section">
             <div class="section-header">
                 <h2 class="section-title">
@@ -142,7 +141,7 @@
             </div>
         </section>
 
-        <!-- ===== VIDEO Section ===== -->
+        <!-- VIDEO Section -->
         <section id="video" class="section">
             <div class="section-header">
                 <h2 class="section-title">
@@ -167,10 +166,54 @@
             <p class="section-subtitle">Beberapa lagu yang menemani perjalanan saya sebagai calon guru, lengkap dengan alasan dan makna pribadi di baliknya.</p>
             <div class="music-grid" id="music-grid-container"></div>
         </section>
+
+        <!-- BUKU TAMU Section -->
+        <section id="buku-tamu" class="section">
+            <div class="section-header">
+                <h2 class="section-title">
+                    <i class="fas fa-book"></i> Buku Tamu
+                </h2>
+                <div class="section-line"></div>
+            </div>
+            <p class="section-subtitle">Tinggalkan pesan dan kesan Anda untuk saya! 😊</p>
+            
+            <div class="guestbook-container">
+                <div class="guestbook-form-wrapper">
+                    <form id="guestbookForm" class="guestbook-form">
+                        <div class="form-group">
+                            <label for="guestName">
+                                <i class="fas fa-user"></i> NAMA LENGKAP
+                            </label>
+                            <input type="text" id="guestName" placeholder="Masukkan nama kamu..." required>
+                        </div>
+                        <div class="form-group">
+                            <label for="guestMessage">
+                                <i class="fas fa-comment"></i> PESAN / KESAN
+                            </label>
+                            <textarea id="guestMessage" rows="4" placeholder="Tulis pesanmu di sini..." required></textarea>
+                        </div>
+                        <button type="submit" class="btn-primary guestbook-submit">
+                            <i class="fas fa-paper-plane"></i> Kirim Pesan
+                        </button>
+                    </form>
+                </div>
+                
+                <div class="guestbook-messages">
+                    <h4><i class="fas fa-comments"></i> Pesan Terbaru</h4>
+                    <div id="messagesContainer">
+                        <!-- Pesan akan ditampilkan di sini -->
+                        <div class="empty-message">
+                            <i class="fas fa-inbox"></i>
+                            <p>Belum ada pesan. Jadilah yang pertama!</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
     </div>
 </main>
 
-<!-- ===== VIDEO MODAL ===== -->
+<!-- VIDEO MODAL -->
 <div class="video-modal" id="videoModal">
     <div class="video-modal-content">
         <button class="video-modal-close" id="videoModalClose">
@@ -180,7 +223,7 @@
     </div>
 </div>
 
-<!-- ===== PHOTO MODAL (LIGHTBOX) ===== -->
+<!-- PHOTO MODAL (LIGHTBOX) -->
 <div class="photo-modal" id="photoModal">
     <button class="photo-modal-close" id="photoModalClose">
         <i class="fas fa-times"></i>
